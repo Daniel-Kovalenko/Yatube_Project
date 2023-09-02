@@ -1,0 +1,7 @@
+<article class="forecast">
+    <h3>Автор: {{ post.author.get_full_name }}, Дата публикации: {{ post.pub_date|date:"d M Y" }}</h3>
+    <p>{{ post.text|linebreaksbr }}</p>
+    {% if request.user == author %}
+      <a class="btn btn-sm text-muted" href="{% url 'posts:post_edit' user_post.id %}" role="button">Редактировать</a>
+    {% endif %}
+</article>
